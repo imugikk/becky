@@ -14,6 +14,7 @@
 		F1261FE62A00FE7100A81E9E /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84902A00F23E00C731B6 /* Poppins-Light.ttf */; };
 		F1261FEF2A0108F300A81E9E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1261FEE2A0108F300A81E9E /* ChatView.swift */; };
 		F14A1BFC2A010E75007DDC1E /* BeckyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1BFB2A010E75007DDC1E /* BeckyView.swift */; };
+		F14A1BFF2A01236B007DDC1E /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = F14A1BFE2A01236B007DDC1E /* hello.png */; };
 		F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184212129FB6B9E0096A44B /* beckyApp.swift */; };
 		F184212429FB6B9E0096A44B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184212329FB6B9E0096A44B /* ContentView.swift */; };
 		F184212629FB6B9F0096A44B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F184212529FB6B9F0096A44B /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		F13B84972A00F23E00C731B6 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		F13B84982A00F3F800C731B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F14A1BFB2A010E75007DDC1E /* BeckyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyView.swift; sourceTree = "<group>"; };
+		F14A1BFE2A01236B007DDC1E /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../../../Desktop/hello.png; sourceTree = "<group>"; };
 		F184211E29FB6B9E0096A44B /* becky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = becky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F184212129FB6B9E0096A44B /* beckyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beckyApp.swift; sourceTree = "<group>"; };
 		F184212329FB6B9E0096A44B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -299,6 +301,7 @@
 		F184213429FB6BF80096A44B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F14A1BFE2A01236B007DDC1E /* hello.png */,
 				F1261FE12A00F71700A81E9E /* Fonts */,
 				F184212529FB6B9F0096A44B /* Assets.xcassets */,
 			);
@@ -508,6 +511,7 @@
 				F1261FE42A00FCC700A81E9E /* Poppins-SemiBold.ttf in Resources */,
 				F1261FE32A00FC4F00A81E9E /* Poppins-Regular.ttf in Resources */,
 				F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */,
+				F14A1BFF2A01236B007DDC1E /* hello.png in Resources */,
 				F184212929FB6B9F0096A44B /* Preview Assets.xcassets in Resources */,
 				F184212629FB6B9F0096A44B /* Assets.xcassets in Resources */,
 			);

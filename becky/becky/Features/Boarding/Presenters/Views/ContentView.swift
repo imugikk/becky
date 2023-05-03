@@ -15,7 +15,8 @@ struct ContentView: View {
         NavigationView{
             VStack (alignment: .leading){
                 Spacer()
-                Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
+                Image("hello")
+                Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1).frame(height: 15)
                 Text("I will assist you in tackling your impulsiveness.").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
                 Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
                 
