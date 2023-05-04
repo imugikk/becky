@@ -26,6 +26,7 @@ struct SelectButtonView: View {
 }
 
 struct SelectButtonView_Previews: PreviewProvider {
+    
     static var previews: some View {
         SelectButtonView(isSelected: .constant(false), text: "Option")
     }

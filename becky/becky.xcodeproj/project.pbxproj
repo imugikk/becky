@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F11CBF792A02B4DA0055661F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF782A02B4DA0055661F /* ResultView.swift */; };
+		F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */; };
 		F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84952A00F23E00C731B6 /* Poppins-Bold.ttf */; };
 		F1261FE32A00FC4F00A81E9E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84862A00F23E00C731B6 /* Poppins-Regular.ttf */; };
 		F1261FE42A00FCC700A81E9E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84882A00F23E00C731B6 /* Poppins-SemiBold.ttf */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		F11CBF782A02B4DA0055661F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyResponseView.swift; sourceTree = "<group>"; };
 		F1261FEE2A0108F300A81E9E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		F13B84862A00F23E00C731B6 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		F13B84872A00F23E00C731B6 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 			children = (
 				F14A1C002A02156C007DDC1E /* SelectButtonView.swift */,
 				F14A1C022A022715007DDC1E /* SubmitButtonView.swift */,
+				F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -544,6 +547,7 @@
 				F184212429FB6B9E0096A44B /* ContentView.swift in Sources */,
 				F184214629FB6D750096A44B /* VerticalTitleDescriptionComponent.swift in Sources */,
 				F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */,
+				F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */,
 				F184213929FB6C9C0096A44B /* Prompt.swift in Sources */,
 				F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */,
 				F184214E29FB6DE70096A44B /* CoreDataManager.swift in Sources */,

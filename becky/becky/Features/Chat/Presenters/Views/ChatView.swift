@@ -8,48 +8,16 @@
 import SwiftUI
 
 struct ChatView: View {
-    @State private var isSelected1 = false
-    @State private var isSelected2 = false
-    @State private var isSelected3 = false
+    @State private var isSelected : [Bool] = [false, false, false]
     @State private var isSubmit = false
     @State private var showingSheet = false
     
     @State private var currentQuestionIndex = 0
     
-    let questions : [[String: Any]] = [
-        [
-            "question": "Are you buying this for the right reasons?",
-            "option": [
-                "No" : 7,
-                "Yes" : 5,
-                "Maybe" : 0
-            ]
-        ],
-        [
-            "question": "Is this a need or a want?",
-            "option": [
-                "Need" : 7,
-                "Want" : 5,
-                "Both" : 0
-            ],
-        ],
-        [
-            "question": "Can you get by without it?",
-            "option": [
-                "No" : 7,
-                "Yes" : 5,
-                "Not Sure" : 0
-            ],
-        ],
-        [
-            "question": "Do you need it right now?",
-            "option": [
-                "Yes because it is gonna be used now" : 7,
-                "Not now but soon I will need it " : 5,
-                "No it can be purchased any time in the future" : 0
-            ],
-        ]
-    ]
+    @State private var messageText = ""
+    @State var messages: [String] = ["Are you buying this for the right reasons?"]
+    
+    @State var options : [[String]] = [["yes", "no", "maybe"], ["yes", "no", "not sure"], ["need", "want", "both"], ["yes no", "not now", "no bitj"]]
     
     struct ChatBubble: View {
         let text: String
@@ -100,29 +68,9 @@ struct ChatView: View {
                                     .background(Color.red)
                                     .cornerRadius(20)
                                     .font(.poppinsRegular)
-
-                                ForEach(0..<currentQuestionIndex+1, id: \.self){ index in
-                                    Text(questions[index]["question"] as! String)
-                                        .padding(8)
-                                        .foregroundColor(Color.red)
-                                        .background(Color.white)
-                                        .overlay(
-                                            RoundedRectangle(cornerRadius: 20)
-                                                .stroke(Color.red, lineWidth: 1)
-                                        )
-                                        .cornerRadius(20)
-                                        .frame(alignment: .leading)
-                                        .padding(.trailing,70)
-                                        .font(.poppinsRegular)
-
+                                ForEach(messages, id: \.self) {
+                                    message in Text(message).font(.poppinsRegular)
                                 }
-                                
-                                Text("Smallest bubble speech")
-                                    .padding(8)
-                                    .foregroundColor(Color.white)
-                                    .background(Color.red)
-                                    .cornerRadius(20)
-                                    .font(.poppinsRegular)
                             }
                         }
                         Spacer()
@@ -130,30 +78,58 @@ struct ChatView: View {
                 }
                 Spacer()
                 VStack{
-                    ForEach(0..<3){ index in SelectButtonView(isSelected: $isSelected1, text: "Option two alias 2").onTapGesture {
-                        isSelected1.toggle()
+                    ForEach(0..<3){ index in ZStack(alignment: .leading){
+                        Capsule()
+                            .frame(height: 40)
+                            .foregroundColor(Color.white)
+                            .overlay(
+                                RoundedRectangle(cornerRadius: 100)
+                                    .stroke(Color.red, lineWidth: isSelected[index] ? 3 : 1)
+                            )
+                        Text(options[currentQuestionIndex][index]).foregroundColor(Color.red).padding().font(isSelected[index] ? .poppinsSemiBold : .poppinsRegular)
+                    }.frame(height: 40).onTapGesture {
+                        isSelected[index].toggle()
                         isSubmit = false
                         
-                            if isSelected1 {
-                                isSelected2 = false
-                                isSelected3 = false
+                        for i in 0..<isSelected.count {
+                            if i == index {
                                 isSubmit = true
+                                messageText = options[currentQuestionIndex][index]
+                            } else {
+                                isSelected[i] = false
                             }
                         }
-                    }
+                    }}
         
                     SubmitButtonView(isSubmit: $isSubmit)
                         .onTapGesture {
-                            if isSubmit && currentQuestionIndex == questions.count-1 { showingSheet.toggle()
-                            } else {
-                                currentQuestionIndex = currentQuestionIndex + 1
+                            if isSubmit && currentQuestionIndex == options.count-1 { showingSheet.toggle()
+                            } else if isSubmit {
+                                currentQuestionIndex += 1
+                                sendMessage(message: messageText)
+                                for i in 0..<isSelected.count {
+                                    isSelected[i] = false
+                                }
                             }
                         }
-                }
-            }.padding()
+                }.padding()
+            }
         }.overlay{
             if showingSheet{
                 ResultView()
+            }
+        }
+    }
+    
+    func sendMessage(message: String) {
+        withAnimation {
+            messages.append("[USER]" + message)
+            self.messageText = ""
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1){
+            withAnimation {
+                messages.append(getBeckyResponse(message: message))
             }
         }
     }
