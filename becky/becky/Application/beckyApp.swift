@@ -24,6 +24,10 @@ extension Font {
         return Font.custom("Poppins-Bold", size: 35.0)
     }
     
+    static var poppinsSemiBold: Font {
+        return Font.custom("Poppins-SemiBold", size: 18.0)
+    }
+    
     static var poppinsSemiBoldLarge: Font {
         return Font.custom("Poppins-SemiBold", size: 35.0)
     }

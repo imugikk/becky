@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F11CBF792A02B4DA0055661F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF782A02B4DA0055661F /* ResultView.swift */; };
 		F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84952A00F23E00C731B6 /* Poppins-Bold.ttf */; };
 		F1261FE32A00FC4F00A81E9E /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84862A00F23E00C731B6 /* Poppins-Regular.ttf */; };
 		F1261FE42A00FCC700A81E9E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84882A00F23E00C731B6 /* Poppins-SemiBold.ttf */; };
@@ -15,6 +16,8 @@
 		F1261FEF2A0108F300A81E9E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1261FEE2A0108F300A81E9E /* ChatView.swift */; };
 		F14A1BFC2A010E75007DDC1E /* BeckyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1BFB2A010E75007DDC1E /* BeckyView.swift */; };
 		F14A1BFF2A01236B007DDC1E /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = F14A1BFE2A01236B007DDC1E /* hello.png */; };
+		F14A1C012A02156C007DDC1E /* SelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1C002A02156C007DDC1E /* SelectButtonView.swift */; };
+		F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1C022A022715007DDC1E /* SubmitButtonView.swift */; };
 		F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184212129FB6B9E0096A44B /* beckyApp.swift */; };
 		F184212429FB6B9E0096A44B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184212329FB6B9E0096A44B /* ContentView.swift */; };
 		F184212629FB6B9F0096A44B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F184212529FB6B9F0096A44B /* Assets.xcassets */; };
@@ -31,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F11CBF782A02B4DA0055661F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		F1261FEE2A0108F300A81E9E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		F13B84862A00F23E00C731B6 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		F13B84872A00F23E00C731B6 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
@@ -52,6 +56,8 @@
 		F13B84982A00F3F800C731B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F14A1BFB2A010E75007DDC1E /* BeckyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyView.swift; sourceTree = "<group>"; };
 		F14A1BFE2A01236B007DDC1E /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../../../Desktop/hello.png; sourceTree = "<group>"; };
+		F14A1C002A02156C007DDC1E /* SelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonView.swift; sourceTree = "<group>"; };
+		F14A1C022A022715007DDC1E /* SubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
 		F184211E29FB6B9E0096A44B /* becky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = becky.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F184212129FB6B9E0096A44B /* beckyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = beckyApp.swift; sourceTree = "<group>"; };
 		F184212329FB6B9E0096A44B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 		F1261FEC2A0108BD00A81E9E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				F14A1C002A02156C007DDC1E /* SelectButtonView.swift */,
+				F14A1C022A022715007DDC1E /* SubmitButtonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -155,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				F1261FEE2A0108F300A81E9E /* ChatView.swift */,
+				F11CBF782A02B4DA0055661F /* ResultView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -529,13 +538,16 @@
 				F184214C29FB6DBA0096A44B /* Double+String.swift in Sources */,
 				F184214329FB6D3E0096A44B /* AppColor.swift in Sources */,
 				F1261FEF2A0108F300A81E9E /* ChatView.swift in Sources */,
+				F11CBF792A02B4DA0055661F /* ResultView.swift in Sources */,
 				F14A1BFC2A010E75007DDC1E /* BeckyView.swift in Sources */,
 				F184215029FB6DFB0096A44B /* NetworkManager.swift in Sources */,
 				F184212429FB6B9E0096A44B /* ContentView.swift in Sources */,
 				F184214629FB6D750096A44B /* VerticalTitleDescriptionComponent.swift in Sources */,
+				F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */,
 				F184213929FB6C9C0096A44B /* Prompt.swift in Sources */,
 				F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */,
 				F184214E29FB6DE70096A44B /* CoreDataManager.swift in Sources */,
+				F14A1C012A02156C007DDC1E /* SelectButtonView.swift in Sources */,
 				F184214829FB6D900096A44B /* EmptyStateView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
