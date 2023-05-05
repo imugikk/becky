@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ChatView: View {
+    @State var product: String
     @State private var isSelected : [Bool] = [false, false, false]
     @State private var isSubmit = false
     @State private var showingSheet = false
@@ -17,7 +18,7 @@ struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = ["Are you buying this for the right reasons?"]
     
-    @State var options : [[String]] = [["yes", "no", "maybe"], ["yes", "no", "not sure"], ["need", "want", "both"], ["yes no", "not now", "no bitj"]]
+    @State var options : [[String]] = [["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"], ["need", "want", "both"], ["yes no", "not now", "no bitj"], ["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"], ["need", "want", "both"]]
     
     struct ChatBubble: View {
         let text: String
@@ -62,20 +63,47 @@ struct ChatView: View {
                     ScrollViewReader{
                         reader in HStack{
                             VStack (alignment: .trailing){
-                                Text("Villa 10 Hektar")
+                                Text(product)
                                     .padding(8)
                                     .foregroundColor(Color.white)
                                     .background(Color.red)
                                     .cornerRadius(20)
                                     .font(.poppinsRegular)
                                 ForEach(messages, id: \.self) {
-                                    message in Text(message).font(.poppinsRegular)
-                                }
+                                    message in
+                                    if message.contains("[USER]") {
+                                        let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
+                                        
+                                        HStack{
+                                            Spacer()
+                                            Text(newMessage).font(.poppinsRegular)
+                                                .frame(minWidth: 50)
+                                                .padding(8)
+                                                .foregroundColor(Color.white)
+                                                .background(Color.red)
+                                                .cornerRadius(20)
+                                                .font(.poppinsRegular)
+                                        }
+                                    } else {
+                                        HStack{
+                                            Text(message).font(.poppinsRegular).padding(8)
+                                                .foregroundColor(Color.red)
+                                                .background(Color.white)
+                                                .cornerRadius(20)
+                                                .font(.poppinsRegular)
+                                                .overlay(
+                                                    RoundedRectangle(cornerRadius: 20)
+                                                        .stroke(Color.red, lineWidth: 1)
+                                                )
+                                            Spacer()
+                                        }
+                                    }
+                                }.padding(.horizontal, 10)
                             }
                         }
-                        Spacer()
-                    }
-                }
+                    }.rotationEffect(.degrees(180))
+                }.rotationEffect(.degrees(180))
+                
                 Spacer()
                 VStack{
                     ForEach(0..<3){ index in ZStack(alignment: .leading){
@@ -93,13 +121,21 @@ struct ChatView: View {
                         
                         for i in 0..<isSelected.count {
                             if i == index {
-                                isSubmit = true
                                 messageText = options[currentQuestionIndex][index]
                             } else {
                                 isSelected[i] = false
                             }
                         }
-                    }}
+                        
+                        for i in isSelected {
+                            if i == true {
+                                isSubmit=true
+                            }
+                        }
+
+                    }
+                        
+                    }
         
                     SubmitButtonView(isSubmit: $isSubmit)
                         .onTapGesture {
@@ -110,6 +146,7 @@ struct ChatView: View {
                                 for i in 0..<isSelected.count {
                                     isSelected[i] = false
                                 }
+                                isSubmit = false
                             }
                         }
                 }.padding()
@@ -137,6 +174,6 @@ struct ChatView: View {
 
 struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
-        ChatView()
+        ChatView(product: "Villa 10 Hektar")
     }
 }

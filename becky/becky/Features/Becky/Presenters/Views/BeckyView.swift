@@ -44,7 +44,7 @@ struct BeckyView: View {
                         Button{
 
                         } label: {
-                            NavigationLink (destination: ChatView().navigationBarBackButtonHidden(true)){
+                            NavigationLink (destination: ChatView(product: product).navigationBarBackButtonHidden(true)){
                                 Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
                             }
                         }

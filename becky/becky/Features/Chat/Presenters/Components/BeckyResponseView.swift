@@ -19,6 +19,8 @@ func getBeckyResponse(message: String) -> String {
             return questions[1]
         } else if tempMessage.contains("no") {
             return questions[2]
+        } else if tempMessage.contains("need") || tempMessage.contains("want") {
+            return questions[3]
         } else {
             return questions[3]
         }
