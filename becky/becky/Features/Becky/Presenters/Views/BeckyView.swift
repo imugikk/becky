@@ -19,17 +19,18 @@ struct BeckyView: View {
                 Spacer()
                 Text("Hello, \(Text(nama).font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
                 Text("Shall we assess your shopping cart?").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
+                    ._lineHeightMultiple(0.85)
                 Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
                 
                 HStack{
                     ZStack(alignment: .leading) {
                         if product.isEmpty {
-                            Text("Insert product name here..") .foregroundColor(Color.red.opacity(0.4)).font(.poppinsRegular)
+                            Text("Insert product name here..") .foregroundColor(Color.red.opacity(0.75)).font(.poppinsRegular)
                         
                         }
                         
                         TextField("", text: $product).foregroundColor(Color.red).font(.poppinsRegular)
-                    }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 20).stroke(Color.red, lineWidth: 1) )
+                    }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 17).stroke(Color.red, lineWidth: 1) )
                     
                     if product.isEmpty { Button(action: {
                         

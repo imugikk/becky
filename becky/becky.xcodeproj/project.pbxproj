@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B9419662A0637C40039B33C /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9419652A0637C40039B33C /* hello.png */; };
 		F11CBF792A02B4DA0055661F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF782A02B4DA0055661F /* ResultView.swift */; };
 		F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */; };
 		F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84952A00F23E00C731B6 /* Poppins-Bold.ttf */; };
@@ -16,7 +17,6 @@
 		F1261FE62A00FE7100A81E9E /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84902A00F23E00C731B6 /* Poppins-Light.ttf */; };
 		F1261FEF2A0108F300A81E9E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1261FEE2A0108F300A81E9E /* ChatView.swift */; };
 		F14A1BFC2A010E75007DDC1E /* BeckyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1BFB2A010E75007DDC1E /* BeckyView.swift */; };
-		F14A1BFF2A01236B007DDC1E /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = F14A1BFE2A01236B007DDC1E /* hello.png */; };
 		F14A1C012A02156C007DDC1E /* SelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1C002A02156C007DDC1E /* SelectButtonView.swift */; };
 		F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1C022A022715007DDC1E /* SubmitButtonView.swift */; };
 		F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184212129FB6B9E0096A44B /* beckyApp.swift */; };
@@ -35,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B9419652A0637C40039B33C /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../hello.png; sourceTree = "<group>"; };
 		F11CBF782A02B4DA0055661F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyResponseView.swift; sourceTree = "<group>"; };
 		F1261FEE2A0108F300A81E9E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -57,7 +58,6 @@
 		F13B84972A00F23E00C731B6 /* Poppins-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-LightItalic.ttf"; sourceTree = "<group>"; };
 		F13B84982A00F3F800C731B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F14A1BFB2A010E75007DDC1E /* BeckyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyView.swift; sourceTree = "<group>"; };
-		F14A1BFE2A01236B007DDC1E /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../../../Desktop/hello.png; sourceTree = "<group>"; };
 		F14A1C002A02156C007DDC1E /* SelectButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectButtonView.swift; sourceTree = "<group>"; };
 		F14A1C022A022715007DDC1E /* SubmitButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitButtonView.swift; sourceTree = "<group>"; };
 		F184211E29FB6B9E0096A44B /* becky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = becky.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -313,7 +313,7 @@
 		F184213429FB6BF80096A44B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				F14A1BFE2A01236B007DDC1E /* hello.png */,
+				8B9419652A0637C40039B33C /* hello.png */,
 				F1261FE12A00F71700A81E9E /* Fonts */,
 				F184212529FB6B9F0096A44B /* Assets.xcassets */,
 			);
@@ -519,11 +519,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1261FE62A00FE7100A81E9E /* Poppins-Light.ttf in Resources */,
+				8B9419662A0637C40039B33C /* hello.png in Resources */,
 				F1261FE52A00FE4A00A81E9E /* Poppins-Italic.ttf in Resources */,
 				F1261FE42A00FCC700A81E9E /* Poppins-SemiBold.ttf in Resources */,
 				F1261FE32A00FC4F00A81E9E /* Poppins-Regular.ttf in Resources */,
 				F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */,
-				F14A1BFF2A01236B007DDC1E /* hello.png in Resources */,
 				F184212929FB6B9F0096A44B /* Preview Assets.xcassets in Resources */,
 				F184212629FB6B9F0096A44B /* Assets.xcassets in Resources */,
 			);
