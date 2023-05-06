@@ -62,16 +62,18 @@ struct HistoryView: View {
                                             .foregroundColor(.accentColor)
                                         Spacer()
                                         Text("12/34/56")
+                                            .opacity(0.5)
                                     }
                                     
                                     Spacer()
                                     
                                     Text("butuh")
+                                        .font(.poppinsBold)
                                         .foregroundColor(.accentColor)
                                     
                                 }
                                 
-                                .padding()
+                                .padding(.horizontal, 20)
                                 
                                 Divider()
                                     .frame(width: 345)
