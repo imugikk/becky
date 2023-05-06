@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B9419662A0637C40039B33C /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B9419652A0637C40039B33C /* hello.png */; };
 		F11CBF792A02B4DA0055661F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF782A02B4DA0055661F /* ResultView.swift */; };
 		F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */; };
 		F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84952A00F23E00C731B6 /* Poppins-Bold.ttf */; };
@@ -32,10 +31,13 @@
 		F184214C29FB6DBA0096A44B /* Double+String.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184214B29FB6DBA0096A44B /* Double+String.swift */; };
 		F184214E29FB6DE70096A44B /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184214D29FB6DE70096A44B /* CoreDataManager.swift */; };
 		F184215029FB6DFB0096A44B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F184214F29FB6DFB0096A44B /* NetworkManager.swift */; };
+		F1DE6D072A063DD000294223 /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = F1DE6D062A063DD000294223 /* hello.png */; };
+		F1DE6D0B2A06406300294223 /* ToDoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE6D082A06406300294223 /* ToDoItem.swift */; };
+		F1DE6D0C2A06406300294223 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE6D092A06406300294223 /* HistoryView.swift */; };
+		F1DE6D0D2A06406300294223 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DE6D0A2A06406300294223 /* SearchBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8B9419652A0637C40039B33C /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../hello.png; sourceTree = "<group>"; };
 		F11CBF782A02B4DA0055661F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyResponseView.swift; sourceTree = "<group>"; };
 		F1261FEE2A0108F300A81E9E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -74,6 +76,10 @@
 		F184214B29FB6DBA0096A44B /* Double+String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+String.swift"; sourceTree = "<group>"; };
 		F184214D29FB6DE70096A44B /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		F184214F29FB6DFB0096A44B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		F1DE6D062A063DD000294223 /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../../../Desktop/hello.png; sourceTree = "<group>"; };
+		F1DE6D082A06406300294223 /* ToDoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoItem.swift; sourceTree = "<group>"; };
+		F1DE6D092A06406300294223 /* HistoryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		F1DE6D0A2A06406300294223 /* SearchBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +236,9 @@
 		F14A1BFD2A010E94007DDC1E /* History */ = {
 			isa = PBXGroup;
 			children = (
+				F1DE6D092A06406300294223 /* HistoryView.swift */,
+				F1DE6D0A2A06406300294223 /* SearchBar.swift */,
+				F1DE6D082A06406300294223 /* ToDoItem.swift */,
 			);
 			path = History;
 			sourceTree = "<group>";
@@ -313,7 +322,7 @@
 		F184213429FB6BF80096A44B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8B9419652A0637C40039B33C /* hello.png */,
+				F1DE6D062A063DD000294223 /* hello.png */,
 				F1261FE12A00F71700A81E9E /* Fonts */,
 				F184212529FB6B9F0096A44B /* Assets.xcassets */,
 			);
@@ -518,8 +527,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F1DE6D072A063DD000294223 /* hello.png in Resources */,
 				F1261FE62A00FE7100A81E9E /* Poppins-Light.ttf in Resources */,
-				8B9419662A0637C40039B33C /* hello.png in Resources */,
 				F1261FE52A00FE4A00A81E9E /* Poppins-Italic.ttf in Resources */,
 				F1261FE42A00FCC700A81E9E /* Poppins-SemiBold.ttf in Resources */,
 				F1261FE32A00FC4F00A81E9E /* Poppins-Regular.ttf in Resources */,
@@ -538,6 +547,7 @@
 			files = (
 				F184213B29FB6CA40096A44B /* Error.swift in Sources */,
 				F184214A29FB6DA10096A44B /* TextModifier.swift in Sources */,
+				F1DE6D0B2A06406300294223 /* ToDoItem.swift in Sources */,
 				F184214C29FB6DBA0096A44B /* Double+String.swift in Sources */,
 				F184214329FB6D3E0096A44B /* AppColor.swift in Sources */,
 				F1261FEF2A0108F300A81E9E /* ChatView.swift in Sources */,
@@ -547,10 +557,12 @@
 				F184212429FB6B9E0096A44B /* ContentView.swift in Sources */,
 				F184214629FB6D750096A44B /* VerticalTitleDescriptionComponent.swift in Sources */,
 				F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */,
+				F1DE6D0C2A06406300294223 /* HistoryView.swift in Sources */,
 				F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */,
 				F184213929FB6C9C0096A44B /* Prompt.swift in Sources */,
 				F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */,
 				F184214E29FB6DE70096A44B /* CoreDataManager.swift in Sources */,
+				F1DE6D0D2A06406300294223 /* SearchBar.swift in Sources */,
 				F14A1C012A02156C007DDC1E /* SelectButtonView.swift in Sources */,
 				F184214829FB6D900096A44B /* EmptyStateView.swift in Sources */,
 			);
