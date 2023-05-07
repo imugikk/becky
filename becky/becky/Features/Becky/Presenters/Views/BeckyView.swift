@@ -22,12 +22,25 @@ struct BeckyView: View {
                     .scaleEffect(0.75)
                     .offset(x: -60, y: 110)
                 
-                Image("hello")
-                    .offset(x:-0.5, y: 18)
+                VStack{
+                    Image("Hello-3")
+                        .padding(.bottom, -5)
+                        .offset(x: -1)
+                    Image("Hello-2")
+                        .padding(.bottom, -5)
+                        .offset(x: 1)
+                    Image("Hello-1")
+                        .padding(.bottom, 2)
+                        .offset(x: 0)
+                }
+                .offset(x:0, y:18)
+                
+//                Image("hello")
+//                    .offset(x:-0.5, y: 18)
                 
                 Spacer()
                 Text("Hello, \(Text(nama).font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
-                Text("Shall we assess your shopping cart?").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
+                Text("Tell me what you want to buy").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
                     ._lineHeightMultiple(0.85)
                 Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
                 
