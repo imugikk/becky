@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
+    
     @State private var name: String = ""
     @State private var placeholder: String = ""
     @State private var offset = CGSize(width: 0, height: -6)
@@ -23,6 +25,22 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             VStack (alignment: .leading){
+                HStack{
+                    Button(action: {
+                      // TOGGLE APPEARANCE
+                      isDarkMode.toggle()
+//                      playSound(sound: "sound-tap", type: "mp3")
+//                      feedback.notificationOccurred(.success)
+                    }, label: {
+                      Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                        .resizable()
+                        .frame(width: 24, height: 24)
+                        .font(.system(.title, design: .rounded))
+                    })
+                }
+                .padding()
+                .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
+                
                 Spacer()
                 ZStack (alignment: .leading){
                     VStack{
@@ -32,10 +50,16 @@ struct ContentView: View {
                             
                             VStack{
                                 if showText{
-                                    Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1).frame(height: 15)
+                                    Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+//                                        .foregroundColor(Color.red)
+                                        .foregroundColor(isDarkMode ? .red : .red)
+                                        .padding(.bottom,1).frame(height: 15)
                                         .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
                                 } else {
-                                    Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.white).padding(.bottom,1).frame(height: 15)
+                                    Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+                                        .foregroundColor(isDarkMode ? .black : .white) // update foreground color
+//                                        .foregroundColor(Color.white)
+                                        .padding(.bottom,1).frame(height: 15)
                                 }
                             }.onAppear{
                                 DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
@@ -48,7 +72,8 @@ struct ContentView: View {
                     }
                     
                     Rectangle()
-                        .fill(.white)
+                        .fill(isDarkMode ? Color.black : Color.white)
+//                        .animation(Animation.easeInOut(duration: isDarkMode ? 0.001 : 0.5))
                         .frame(width: 100, height: 130)
                         .offset(offset)
                         .animation(Animation.easeInOut(duration: 2))
