@@ -16,6 +16,15 @@ struct BeckyView: View {
     var body: some View {
         NavigationView{
             VStack (alignment: .leading){
+                Image("Becky_Frontpage")
+                    .resizable()
+                    .scaledToFit()
+                    .scaleEffect(0.6)
+                    .offset(x: -80, y: 120)
+                
+                Image("hello")
+                    .offset(x:-0.5, y: 18)
+                
                 Spacer()
                 Text("Hello, \(Text(nama).font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
                 Text("Shall we assess your shopping cart?").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
@@ -30,12 +39,14 @@ struct BeckyView: View {
                         }
                         
                         TextField("", text: $product).foregroundColor(Color.red).font(.poppinsRegular)
-                    }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 17).stroke(Color.red, lineWidth: 1) )
+                    }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 70).stroke(Color.red, lineWidth: 1) )
                     
                     if product.isEmpty { Button(action: {
                         
                     }) {
                         Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                            .frame(width:50, height:33)
+                            .scaleEffect(1.2)
                     }
                     .padding(7)
                     .background(.red.opacity(0.4))
@@ -47,6 +58,8 @@ struct BeckyView: View {
                         } label: {
                             NavigationLink (destination: ChatView(product: product).navigationBarBackButtonHidden(true)){
                                 Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                                    .frame(width:50, height:33)
+                                    .scaleEffect(1.2)
                             }
                         }
                         .padding(7)
