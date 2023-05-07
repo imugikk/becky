@@ -22,10 +22,12 @@ struct BeckyView: View {
                         // TOGGLE APPEARANCE
                         isDarkMode.toggle()
                     }, label: {
-                        Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                        Image(systemName: isDarkMode ? "circle.righthalf.filled" :  "circle.lefthalf.filled")
                             .resizable()
                             .frame(width: 24, height: 24)
                             .font(.system(.title, design: .rounded))
+                            .background(.red.opacity(0.4))
+                            .cornerRadius(100)
                     })
                 }
                 .padding()
