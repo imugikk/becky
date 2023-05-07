@@ -32,6 +32,32 @@ struct ContentView: View {
                         .scaledToFit()
                         .scaleEffect(0.6)
                         .offset(x: -75, y: -130)
+                    VStack (alignment: .leading){
+                        
+                        Image("hello")
+                        
+                        VStack{
+                            if showText{
+                                Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+//                                        .foregroundColor(Color.red)
+                                    .foregroundColor(isDarkMode ? .red : .red)
+                                    .padding(.bottom,1).frame(height: 15)
+                                    .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
+                            } else {
+                                Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+                                    .foregroundColor(isDarkMode ? .black : .white) // update foreground color
+//                                        .foregroundColor(Color.white)
+                                    .padding(.bottom,1).frame(height: 15)
+                            }
+                        }.onAppear{
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                withAnimation{
+                                    self.showText = true
+                                }
+                            }
+                        }
+                    }.offset(x: 15, y: -220)
+                    
                 }
                 
                 VStack (alignment: .leading){
@@ -56,31 +82,31 @@ struct ContentView: View {
     
                     ZStack (alignment: .leading){
                         VStack{
-                            VStack (alignment: .leading){
-                                
-                                Image("hello")
-                                
-                                VStack{
-                                    if showText{
-                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
-    //                                        .foregroundColor(Color.red)
-                                            .foregroundColor(isDarkMode ? .red : .red)
-                                            .padding(.bottom,1).frame(height: 15)
-                                            .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
-                                    } else {
-                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
-                                            .foregroundColor(isDarkMode ? .black : .white) // update foreground color
-    //                                        .foregroundColor(Color.white)
-                                            .padding(.bottom,1).frame(height: 15)
-                                    }
-                                }.onAppear{
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                        withAnimation{
-                                            self.showText = true
-                                        }
-                                    }
-                                }
-                            }
+//                            VStack (alignment: .leading){
+//
+//                                Image("hello")
+//
+//                                VStack{
+//                                    if showText{
+//                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+//    //                                        .foregroundColor(Color.red)
+//                                            .foregroundColor(isDarkMode ? .red : .red)
+//                                            .padding(.bottom,1).frame(height: 15)
+//                                            .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
+//                                    } else {
+//                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+//                                            .foregroundColor(isDarkMode ? .black : .white) // update foreground color
+//    //                                        .foregroundColor(Color.white)
+//                                            .padding(.bottom,1).frame(height: 15)
+//                                    }
+//                                }.onAppear{
+//                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                                        withAnimation{
+//                                            self.showText = true
+//                                        }
+//                                    }
+//                                }
+//                            }
                         }
                         
                         Rectangle()
