@@ -12,7 +12,7 @@ class ChatManager: ObservableObject{
     @Published var answerChoice: AnswersChoice?
     var totalScore: Int = 0
     var notDoneQuest: [QuestionPack] = []
-    var arrOfString: [String] = []
+    @Published var arrOfString: [String] = []
     
     private var questionSequence: [[QuestionPack]] = [[]]
     private var needsPack: [QuestionPack] = []
