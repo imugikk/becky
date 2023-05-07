@@ -26,6 +26,19 @@ struct ContentView: View {
         NavigationView{
             VStack (alignment: .leading){
                 HStack{
+                    Spacer()
+                    Button(action: {
+                    // TOGGLE APPEARANCE
+                    isDarkMode.toggle()
+//                      playSound(sound: "sound-tap", type: "mp3")
+//                      feedback.notificationOccurred(.success)
+                  }, label: {
+                    Image(systemName: "clock.arrow.circlepath")
+                      .resizable()
+                      .frame(width: 24, height: 24)
+                      .font(.system(.title, design: .rounded))
+                  })
+                    
                     Button(action: {
                       // TOGGLE APPEARANCE
                       isDarkMode.toggle()

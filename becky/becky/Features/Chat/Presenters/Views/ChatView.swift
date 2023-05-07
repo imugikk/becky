@@ -15,12 +15,14 @@ struct ChatView: View {
     
     @State private var currentQuestionIndex = 0
     
-    @State private var messageText = ""
-    @State var messages: [String] = ["Are you buying this for the right reasons?"]
-    
-    @State var options : [[String]] = [["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"]]
+    @State var options : [[String]] = [["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"],["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"]]
     
     @Environment(\.managedObjectContext) var moc
+    @StateObject var chatManager: ChatManager = ChatManager()
+    @State var selectedChoiceNumber: Int?
+    
+    @State var messages: [String] = ["Are you buying this for the right reasons?"]
+    @State private var messageText = ""
     
     struct ChatBubble: View {
         let text: String
@@ -86,13 +88,12 @@ struct ChatView: View {
                                                 .cornerRadius(20)
                                                 .font(.poppinsRegular)
                                         }
-                                    } else {
+                                        
                                         HStack{
                                             Text(message).font(.poppinsRegular).padding(8)
                                                 .foregroundColor(Color.red)
                                                 .background(Color.white)
                                                 .cornerRadius(20)
-                                                .font(.poppinsRegular)
                                                 .overlay(
                                                     RoundedRectangle(cornerRadius: 20)
                                                         .stroke(Color.red, lineWidth: 1)
@@ -100,57 +101,65 @@ struct ChatView: View {
                                             Spacer()
                                         }
                                     }
-                                }.padding(.horizontal, 10)
-                            }
+                                }
+                            }.padding(.horizontal, 10)
                         }
                     }.rotationEffect(.degrees(180))
                 }.rotationEffect(.degrees(180))
                 
                 Spacer()
                 VStack{
-                    ForEach(0..<3){ index in ZStack(alignment: .leading){
-                        Capsule()
-                            .frame(height: 40)
-                            .foregroundColor(Color.white)
-                            .overlay(
-                                RoundedRectangle(cornerRadius: 100)
-                                    .stroke(Color.red, lineWidth: isSelected[index] ? 3 : 1)
-                            )
-                        Text(options[currentQuestionIndex][index]).foregroundColor(Color.red).padding().font(isSelected[index] ? .poppinsSemiBold : .poppinsRegular)
-                    }.frame(height: 40).onTapGesture {
-                        isSelected[index].toggle()
-                        isSubmit = false
-                        
-                        for i in 0..<isSelected.count {
-                            if i == index {
-                                messageText = options[currentQuestionIndex][index]
-                            } else {
-                                isSelected[i] = false
-                            }
-                        }
-                        
-                        for i in isSelected {
-                            if i == true {
-                                isSubmit=true
-                            }
-                        }
+                    ForEach(chatManager.questionPack?.choices ?? []){ choice in
 
-                    }
-                        
-                    }
+                        Text("\(choice.text)" as String)
+                            .padding(8)
+                            .foregroundColor(Color.red)
+                            .background(Color.white)
+                            .cornerRadius(20)
+                            .font(.poppinsRegular)
+                            .overlay{
+                                if let selectedChoiceNumber, choice.no == selectedChoiceNumber{
+                                    RoundedRectangle(cornerRadius: 100)
+                                        .stroke(Color.red, lineWidth: 3)
+                                } else {
+                                    RoundedRectangle(cornerRadius: 100)
+                                        .stroke(Color.red, lineWidth: 1)
+                                }
+                            }
+                            .onTapGesture {
+                                selectedChoiceNumber = choice.no
+                                isSelected[selectedChoiceNumber!].toggle()
+                                isSubmit = false
         
+                                for i in 0..<isSelected.count {
+                                    if i == selectedChoiceNumber! {
+                                        messageText = choice.text
+                                    } else {
+                                        isSelected[i] = false
+                                    }
+                                }
+        
+                                for i in isSelected {
+                                    if i == true {
+                                        isSubmit=true
+                                    }
+                                }
+                            }
+                    }
+                    
                     SubmitButtonView(isSubmit: $isSubmit)
                         .onTapGesture {
-                            if isSubmit && currentQuestionIndex == options.count-1 {
+                            if isSubmit && chatManager.totalScore >= 100 {
                                 showingSheet.toggle()
                                 saveData()
                             } else if isSubmit {
-                                currentQuestionIndex += 1
+                                chatManager.isSubmited(selectedOption: selectedChoiceNumber!-1)
                                 sendMessage(message: messageText)
                                 for i in 0..<isSelected.count {
                                     isSelected[i] = false
                                 }
                                 isSubmit = false
+    
                             }
                         }
                 }.padding()
@@ -159,6 +168,8 @@ struct ChatView: View {
             if showingSheet{
                 ResultView()
             }
+        }.onAppear{
+            chatManager.initiateQuestionPack()
         }
     }
     
@@ -192,7 +203,8 @@ struct ChatView: View {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
-                messages.append(getBeckyResponse(message: message))
+                messages.append(message)
+//                messages.append("test")
             }
         }
     }

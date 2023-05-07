@@ -57,9 +57,8 @@ struct HistoryView: View {
                         
                         SearchBar(text: $searchText)
                             .foregroundColor(.accentColor)
-                        
-                        //.filter({ searchText.isEmpty ? true : $0.product!.contains(searchText) })
-                        ForEach(histories)  { item in
+
+                        ForEach(histories.filter({ searchText.isEmpty ? true : $0.product!.contains(searchText) }))  { item in
                             VStack{
                                 HStack{
                                     
