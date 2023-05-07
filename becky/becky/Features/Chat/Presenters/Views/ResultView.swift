@@ -42,7 +42,7 @@ struct ResultView: View {
                                 Button(){
                                     
                                 } label: {
-                                    NavigationLink(destination: HistoryView()){
+                                    NavigationLink(destination: ContentView().navigationBarHidden(true)){
                                         HStack{
                                             Image(systemName: "arrow.counterclockwise").foregroundColor(.accentColor)
                                             Text("Start Again")

@@ -66,6 +66,18 @@ struct ContentView: View {
                     }
                     
                     HStack{
+                        
+                        Button(action: {
+                        
+                        }, label: {
+                            NavigationLink(destination: HistoryView()){
+                                Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                                    .resizable()
+                                    .frame(width: 24, height: 24)
+                                    .font(.system(.title, design: .rounded))
+                            }
+                        })
+
                         Button(action: {
                             // TOGGLE APPEARANCE
                             isDarkMode.toggle()

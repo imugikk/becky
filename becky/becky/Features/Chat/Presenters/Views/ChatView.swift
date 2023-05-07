@@ -21,6 +21,7 @@ struct ChatView: View {
     @Environment(\.managedObjectContext) var moc
     @StateObject var chatManager: ChatManager = ChatManager()
     @State var selectedChoiceNumber: Int?
+    @State var index: Int = 0
     
     var body: some View {
         ZStack{
@@ -115,12 +116,15 @@ struct ChatView: View {
                     
                     SubmitButtonView(isSubmit: $isSubmit)
                         .onTapGesture {
-                            if isSubmit && chatManager.totalScore >= 100 {
+                            if isSubmit && (chatManager.totalScore >= 100 || index >= 35 ) {
                                 showingSheet.toggle()
                                 saveData()
                             } else if isSubmit {
                                 chatManager.isSubmited(selectedOption: selectedChoiceNumber! - 1)
                                 sendMessage(message: messageText)
+                                index += 1
+                                
+                                print(index)
                                 
                                 for i in 0..<isSelected.count {
                                     selectedChoiceNumber = 0
@@ -151,11 +155,13 @@ struct ChatView: View {
         history.id = UUID()
         history.product = "\(product)"
         history.date = Date()
-        history.result = "butuh"
+        if chatManager.totalScore <= 100 {
+            history.result = "Bye"
+        } else {
+            history.result = "Buy"
+        }
         print("masuk")
         
-//        DataController().save()
-//        try? moc.save()
         do {
             try moc.save()
             if moc.hasChanges {
@@ -177,7 +183,7 @@ struct ChatView: View {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
                 chatManager.arrOfString.append("\(chatManager.questionPack!.question)")
-                print(chatManager.arrOfString)
+//                print(chatManager.arrOfString)
             }
         }
     }
