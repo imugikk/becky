@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		4211366E2A07FEC70030AFD0 /* Becky_Frontpage.svg in Resources */ = {isa = PBXBuildFile; fileRef = 4211366D2A07FEC70030AFD0 /* Becky_Frontpage.svg */; };
-		8B663F792A0640DB00A5F3BC /* hello.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B663F782A0640DB00A5F3BC /* hello.png */; };
 		F11CBF792A02B4DA0055661F /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF782A02B4DA0055661F /* ResultView.swift */; };
 		F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */; };
 		F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84952A00F23E00C731B6 /* Poppins-Bold.ttf */; };
@@ -712,7 +711,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"becky/Preview Content\"";
-				DEVELOPMENT_TEAM = 5HAHSL2Z4H;
+				DEVELOPMENT_TEAM = 92RA72FW2S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = becky/Info.plist;
@@ -742,7 +741,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"becky/Preview Content\"";
-				DEVELOPMENT_TEAM = 5HAHSL2Z4H;
+				DEVELOPMENT_TEAM = 92RA72FW2S;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = becky/Info.plist;
