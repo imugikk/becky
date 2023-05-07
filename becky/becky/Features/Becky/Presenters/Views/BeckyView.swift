@@ -19,8 +19,8 @@ struct BeckyView: View {
                 Image("Becky_Frontpage")
                     .resizable()
                     .scaledToFit()
-                    .scaleEffect(0.6)
-                    .offset(x: -80, y: 120)
+                    .scaleEffect(0.75)
+                    .offset(x: -60, y: 110)
                 
                 Image("hello")
                     .offset(x:-0.5, y: 18)
