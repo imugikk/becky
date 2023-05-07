@@ -36,6 +36,7 @@ struct ContentView: View {
                     }
                     .offset(y:-130)
                     
+                    
                     HStack{
                         
                         Image("hello")
@@ -145,7 +146,7 @@ struct ContentView: View {
                         }
                     }.offset(x:-18, y: 20)
                         .padding()
-                        .frame(width: 350, height: 200)
+                        .frame(width: 350, height: 200, alignment: .leading)
                     
                     HStack {
                         Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
