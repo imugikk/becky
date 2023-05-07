@@ -24,127 +24,140 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView{
-            VStack (alignment: .leading){
-                HStack{
-                    Button(action: {
-                      // TOGGLE APPEARANCE
-                      isDarkMode.toggle()
-//                      playSound(sound: "sound-tap", type: "mp3")
-//                      feedback.notificationOccurred(.success)
-                    }, label: {
-                      Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
-                        .resizable()
-                        .frame(width: 24, height: 24)
-                        .font(.system(.title, design: .rounded))
-                    })
-                }
-                .padding()
-                .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
+            ZStack {
                 
-                Spacer()
-                ZStack (alignment: .leading){
-                    VStack{
-                        VStack (alignment: .leading){
-                            
-                            Image("hello")
-                            
-                            VStack{
-                                if showText{
-                                    Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
-//                                        .foregroundColor(Color.red)
-                                        .foregroundColor(isDarkMode ? .red : .red)
-                                        .padding(.bottom,1).frame(height: 15)
-                                        .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
-                                } else {
-                                    Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
-                                        .foregroundColor(isDarkMode ? .black : .white) // update foreground color
-//                                        .foregroundColor(Color.white)
-                                        .padding(.bottom,1).frame(height: 15)
-                                }
-                            }.onAppear{
-                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                                    withAnimation{
-                                        self.showText = true
+                VStack (alignment: .leading) {
+                    Image("Becky_Frontpage")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(0.6)
+                        .offset(x: -75, y: -130)
+                }
+                
+                VStack (alignment: .leading){
+                    HStack{
+                        Button(action: {
+                          // TOGGLE APPEARANCE
+                          isDarkMode.toggle()
+    //                      playSound(sound: "sound-tap", type: "mp3")
+    //                      feedback.notificationOccurred(.success)
+                        }, label: {
+                          Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .font(.system(.title, design: .rounded))
+                        })
+                    }
+                    .padding()
+                    .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
+                    
+                    Spacer()
+                    
+    
+                    ZStack (alignment: .leading){
+                        VStack{
+                            VStack (alignment: .leading){
+                                
+                                Image("hello")
+                                
+                                VStack{
+                                    if showText{
+                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+    //                                        .foregroundColor(Color.red)
+                                            .foregroundColor(isDarkMode ? .red : .red)
+                                            .padding(.bottom,1).frame(height: 15)
+                                            .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
+                                    } else {
+                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
+                                            .foregroundColor(isDarkMode ? .black : .white) // update foreground color
+    //                                        .foregroundColor(Color.white)
+                                            .padding(.bottom,1).frame(height: 15)
+                                    }
+                                }.onAppear{
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                        withAnimation{
+                                            self.showText = true
+                                        }
                                     }
                                 }
                             }
                         }
+                        
+                        Rectangle()
+                            .fill(isDarkMode ? Color.black : Color.white)
+    //                        .animation(Animation.easeInOut(duration: isDarkMode ? 0.001 : 0.5))
+                            .frame(width: 100, height: 130)
+                            .offset(offset)
+                            .animation(Animation.easeInOut(duration: 2))
+                            .opacity(opacity)
                     }
+                    .onAppear {
+                        offset = CGSize(width: 0, height: 120)}
                     
-                    Rectangle()
-                        .fill(isDarkMode ? Color.black : Color.white)
-//                        .animation(Animation.easeInOut(duration: isDarkMode ? 0.001 : 0.5))
-                        .frame(width: 100, height: 130)
-                        .offset(offset)
-                        .animation(Animation.easeInOut(duration: 2))
-                        .opacity(opacity)
-                }
-                .onAppear {
-                    offset = CGSize(width: 0, height: 120)}
-                
-                VStack{
-                    if showText {
-                        Text(text)
-                            .font(.poppinsSemiBoldLarge)
-                            .foregroundColor(Color.red)
-                            ._lineHeightMultiple(0.85)
-                            .padding(0.0)
-                            .onAppear {
-                                if finalText == "I will assist you in tackling your impulsiveness." {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    VStack{
+                        if showText {
+                            Text(text)
+                                .font(.poppinsSemiBoldLarge)
+                                .foregroundColor(Color.red)
+                                ._lineHeightMultiple(0.85)
+                                .padding(0.0)
+                                .onAppear {
+                                    if finalText == "I will assist you in tackling your impulsiveness." {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                                            typeWriter()
+                                                        }
+                                                    } else {
                                                         typeWriter()
                                                     }
-                                                } else {
-                                                    typeWriter()
-                                                }
-                            }
-                    } else {
-                        Text(text)
-                            .font(.poppinsSemiBoldLarge)
-                            .foregroundColor(Color.white)
-                            .padding(0.0)
-                    }
-                }
-            
-                Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
-                
-                HStack{
-                    ZStack(alignment: .leading) {
-                        if name.isEmpty {
-                            Text("What's Your Name") .foregroundColor(Color.red.opacity(0.75)).font(.poppinsRegular)
-                        
+                                }
+                        } else {
+                            Text(text)
+                                .font(.poppinsSemiBoldLarge)
+                                .foregroundColor(Color.white)
+                                .padding(0.0)
                         }
-                        
-                        TextField("", text: $name)
-                            .foregroundColor(Color.red)
-                            .font(.poppinsRegular)
-                    }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 17).stroke(Color.red, lineWidth: 1) )
-                    
-                    if name.isEmpty { Button(action: {
-                        
-                    }) {
-                        Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
                     }
-                    .padding(7)
-                    .background(.red.opacity(0.4))
-                    .foregroundColor(.red)
-                        .cornerRadius(100)
-                    } else {
-                        Button{
-
-                        } label: {
-                            NavigationLink (destination: BeckyView(nama: name).navigationBarBackButtonHidden(true)){
-                                Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                
+                    Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
+                    
+                    HStack{
+                        ZStack(alignment: .leading) {
+                            if name.isEmpty {
+                                Text("What's Your Name") .foregroundColor(Color.red.opacity(0.75)).font(.poppinsRegular)
+                            
                             }
+                            
+                            TextField("", text: $name)
+                                .foregroundColor(Color.red)
+                                .font(.poppinsRegular)
+                        }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 17).stroke(Color.red, lineWidth: 1) )
+                        
+                        if name.isEmpty { Button(action: {
+                            
+                        }) {
+                            Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
                         }
                         .padding(7)
-                        .background(.red)
-                        .foregroundColor(.white)
-                        .cornerRadius(100)
+                        .background(.red.opacity(0.4))
+                        .foregroundColor(.red)
+                            .cornerRadius(100)
+                        } else {
+                            Button{
+
+                            } label: {
+                                NavigationLink (destination: BeckyView(nama: name).navigationBarBackButtonHidden(true)){
+                                    Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                                }
+                            }
+                            .padding(7)
+                            .background(.red)
+                            .foregroundColor(.white)
+                            .cornerRadius(100)
+                        }
                     }
                 }
+                .padding()
             }
-            .padding()
         }
     }
     
