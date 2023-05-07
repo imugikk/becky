@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct HistoryView: View {
-    @State var todoItems = [ ToDoItem(name: "Meet Eddie for lunch"),
-                              ToDoItem(name: "Buy toilet paper"),
-                              ToDoItem(name: "Write a new tutorial"),
-                              ToDoItem(name: "Buy two bottles of wine"),
-                              ToDoItem(name: "Prepare the presentation deck")]
+//    @State var todoItems = [ ToDoItem(name: "Meet Eddie for lunch"),
+//                              ToDoItem(name: "Buy toilet paper"),
+//                              ToDoItem(name: "Write a new tutorial"),
+//                              ToDoItem(name: "Buy two bottles of wine"),
+//                              ToDoItem(name: "Prepare the presentation deck")
+//                                ]
     @State private var searchText = ""
     
-//    @StateObject private var dataController = DataController()
+    @FetchRequest(entity: History.entity() ,sortDescriptors: []) var histories : FetchedResults<History>
     
     // MARK: - PROPERTIES
     @Environment(\.presentationMode) var presentationMode
@@ -52,15 +53,13 @@ struct HistoryView: View {
                             .foregroundColor(.accentColor)
                         
                         
-                        ForEach(todoItems.filter({ searchText.isEmpty ? true : $0.name.contains(searchText) }))  { item in
-
+                        ForEach(histories.filter({ searchText.isEmpty ? true : $0.product!.contains(searchText) }))  { item in
                             VStack{
                                 HStack{
                                     
                                     VStack(alignment: .leading) {
-                                        /*@START_MENU_TOKEN@*/Text(item.name)/*@END_MENU_TOKEN@*/
+                                        Text(item.product ?? "Unknown")
                                             .foregroundColor(.accentColor)
-                                        Spacer()
                                         Text("12/34/56")
                                     }
                                     
@@ -77,7 +76,6 @@ struct HistoryView: View {
                                     .frame(width: 345)
                             }
                         }
-                        
                     }//:VStack
                 }
             }

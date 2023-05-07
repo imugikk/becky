@@ -46,9 +46,14 @@ extension Font {
 
 @main
 struct beckyApp: App {
+    
+//    @StateObject private var dataController = DataController()
+    let dataController = DataController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView().font(.poppinsRegular)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

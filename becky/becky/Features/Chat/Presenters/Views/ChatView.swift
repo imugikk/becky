@@ -18,7 +18,9 @@ struct ChatView: View {
     @State private var messageText = ""
     @State var messages: [String] = ["Are you buying this for the right reasons?"]
     
-    @State var options : [[String]] = [["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"], ["need", "want", "both"], ["yes no", "not now", "no bitj"], ["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"], ["need", "want", "both"]]
+    @State var options : [[String]] = [["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"]]
+    
+    @Environment(\.managedObjectContext) var moc
     
     struct ChatBubble: View {
         let text: String
@@ -139,7 +141,9 @@ struct ChatView: View {
         
                     SubmitButtonView(isSubmit: $isSubmit)
                         .onTapGesture {
-                            if isSubmit && currentQuestionIndex == options.count-1 { showingSheet.toggle()
+                            if isSubmit && currentQuestionIndex == options.count-1 {
+                                showingSheet.toggle()
+                                saveData()
                             } else if isSubmit {
                                 currentQuestionIndex += 1
                                 sendMessage(message: messageText)
@@ -156,6 +160,18 @@ struct ChatView: View {
                 ResultView()
             }
         }
+    }
+    
+    func saveData() {
+        let history = History(context: moc)
+        history.id = UUID()
+        history.product = "\(product)"
+        history.date = Date()
+        history.result = "butuh"
+        print("masuk")
+        
+        DataController().save()
+//        try? moc.save()
     }
     
     func sendMessage(message: String) {
