@@ -31,7 +31,7 @@ struct ContentView: View {
                         .resizable()
                         .scaledToFit()
                         .scaleEffect(0.6)
-                        .offset(x: -75, y: -130)
+                        .offset(x: -75, y: -60)
                     VStack (alignment: .leading){
                         
                         Image("hello")
@@ -56,7 +56,7 @@ struct ContentView: View {
                                 }
                             }
                         }
-                    }.offset(x: 15, y: -220)
+                    }.offset(x: 15, y: -180)
                     
                 }
                 
@@ -65,8 +65,6 @@ struct ContentView: View {
                         Button(action: {
                           // TOGGLE APPEARANCE
                           isDarkMode.toggle()
-    //                      playSound(sound: "sound-tap", type: "mp3")
-    //                      feedback.notificationOccurred(.success)
                         }, label: {
                           Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
                             .resizable()
@@ -109,13 +107,12 @@ struct ContentView: View {
 //                            }
                         }
                         
-                        Rectangle()
-                            .fill(isDarkMode ? Color.black : Color.white)
-    //                        .animation(Animation.easeInOut(duration: isDarkMode ? 0.001 : 0.5))
-                            .frame(width: 100, height: 130)
-                            .offset(offset)
-                            .animation(Animation.easeInOut(duration: 2))
-                            .opacity(opacity)
+//                        Rectangle()
+//                            .fill(isDarkMode ? Color.black : Color.white)
+//                            .frame(width: 100, height: 130)
+//                            .offset(offset)
+//                            .animation(Animation.easeInOut(duration: 2))
+//                            .opacity(opacity)
                     }
                     .onAppear {
                         offset = CGSize(width: 0, height: 120)}
@@ -149,19 +146,21 @@ struct ContentView: View {
                     HStack{
                         ZStack(alignment: .leading) {
                             if name.isEmpty {
-                                Text("What's Your Name") .foregroundColor(Color.red.opacity(0.75)).font(.poppinsRegular)
+                                Text("What's your name?") .foregroundColor(Color.red.opacity(0.75)).font(.poppinsRegular)
                             
                             }
                             
                             TextField("", text: $name)
                                 .foregroundColor(Color.red)
                                 .font(.poppinsRegular)
-                        }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 17).stroke(Color.red, lineWidth: 1) )
+                        }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 70).stroke(Color.red, lineWidth: 1) )
                         
                         if name.isEmpty { Button(action: {
                             
                         }) {
                             Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                                .frame(width:50, height:33)
+                                .scaleEffect(1.2)
                         }
                         .padding(7)
                         .background(.red.opacity(0.4))
@@ -173,6 +172,8 @@ struct ContentView: View {
                             } label: {
                                 NavigationLink (destination: BeckyView(nama: name).navigationBarBackButtonHidden(true)){
                                     Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                                        .frame(width:50, height:33)
+                                        .scaleEffect(1.2)
                                 }
                             }
                             .padding(7)
