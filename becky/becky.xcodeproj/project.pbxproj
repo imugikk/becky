@@ -15,8 +15,8 @@
 		F1261FE52A00FE4A00A81E9E /* Poppins-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84892A00F23E00C731B6 /* Poppins-Italic.ttf */; };
 		F1261FE62A00FE7100A81E9E /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F13B84902A00F23E00C731B6 /* Poppins-Light.ttf */; };
 		F1261FEF2A0108F300A81E9E /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1261FEE2A0108F300A81E9E /* ChatView.swift */; };
-		F129461A2A079EAA00ABE574 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12946192A079EAA00ABE574 /* ChatManager.swift */; };
-		F129461E2A079EC400ABE574 /* QuestionsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F129461D2A079EC400ABE574 /* QuestionsData.swift */; };
+		F12946222A07B9BA00ABE574 /* ChatManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12946212A07B9BA00ABE574 /* ChatManager.swift */; };
+		F12946242A07B9C500ABE574 /* QuestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12946232A07B9C500ABE574 /* QuestionData.swift */; };
 		F14A1BFC2A010E75007DDC1E /* BeckyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1BFB2A010E75007DDC1E /* BeckyView.swift */; };
 		F14A1C012A02156C007DDC1E /* SelectButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1C002A02156C007DDC1E /* SelectButtonView.swift */; };
 		F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14A1C022A022715007DDC1E /* SubmitButtonView.swift */; };
@@ -44,8 +44,8 @@
 		F11CBF782A02B4DA0055661F /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		F11CBF7C2A0402E40055661F /* BeckyResponseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeckyResponseView.swift; sourceTree = "<group>"; };
 		F1261FEE2A0108F300A81E9E /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
-		F12946192A079EAA00ABE574 /* ChatManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatManager.swift; path = ../../../../../../../tempMC/tempMC/ChatManager.swift; sourceTree = "<group>"; };
-		F129461D2A079EC400ABE574 /* QuestionsData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionsData.swift; path = ../../../../../../../tempMC/tempMC/QuestionsData.swift; sourceTree = "<group>"; };
+		F12946212A07B9BA00ABE574 /* ChatManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatManager.swift; sourceTree = "<group>"; };
+		F12946232A07B9C500ABE574 /* QuestionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionData.swift; sourceTree = "<group>"; };
 		F13B84862A00F23E00C731B6 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
 		F13B84872A00F23E00C731B6 /* Poppins-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
 		F13B84882A00F23E00C731B6 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
@@ -136,8 +136,8 @@
 		F1261FE82A01088A00A81E9E /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F12946192A079EAA00ABE574 /* ChatManager.swift */,
-				F129461D2A079EC400ABE574 /* QuestionsData.swift */,
+				F12946212A07B9BA00ABE574 /* ChatManager.swift */,
+				F12946232A07B9C500ABE574 /* QuestionData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -568,11 +568,11 @@
 				F184214629FB6D750096A44B /* VerticalTitleDescriptionComponent.swift in Sources */,
 				F14A1C032A022715007DDC1E /* SubmitButtonView.swift in Sources */,
 				F1DE6D0C2A06406300294223 /* HistoryView.swift in Sources */,
+				F12946242A07B9C500ABE574 /* QuestionData.swift in Sources */,
 				F11CBF7D2A0402E40055661F /* BeckyResponseView.swift in Sources */,
-				F129461A2A079EAA00ABE574 /* ChatManager.swift in Sources */,
+				F12946222A07B9BA00ABE574 /* ChatManager.swift in Sources */,
 				F184213929FB6C9C0096A44B /* Prompt.swift in Sources */,
 				F184212229FB6B9E0096A44B /* beckyApp.swift in Sources */,
-				F129461E2A079EC400ABE574 /* QuestionsData.swift in Sources */,
 				F184214E29FB6DE70096A44B /* CoreDataManager.swift in Sources */,
 				F1DE6D0D2A06406300294223 /* SearchBar.swift in Sources */,
 				F14A1C012A02156C007DDC1E /* SelectButtonView.swift in Sources */,
