@@ -12,14 +12,19 @@ class ChatManager: ObservableObject{
     @Published var answerChoice: AnswersChoice?
     var totalScore: Int = 0
     var notDoneQuest: [QuestionPack] = []
+    var arrOfString: [String] = []
     
     private var questionSequence: [[QuestionPack]] = [[]]
     private var needsPack: [QuestionPack] = []
     private var financePack: [QuestionPack] = []
     private var itemPack: [QuestionPack] = []
     private var alternativePack: [QuestionPack] = []
+    private var questionFake: QuestionPack?
     var startIndex: Int = 0
     
+    func stringToQuestion(questionName: String){
+        arrOfString.append(questionName)
+    }
     
     private func isAllChildAnswered(childsName: [QuestionPack])-> Bool {
         return childsName.allSatisfy{ $0.isDone }
@@ -30,7 +35,8 @@ class ChatManager: ObservableObject{
     }
     
     public func initiateQuestionPack(){
-        (questionPack, questionSequence, needsPack, financePack,itemPack, alternativePack) = QuestionDataSource.shared.generateQuestionPack()
+        (questionPack, questionSequence, needsPack, financePack,itemPack, alternativePack, questionFake) = QuestionDataSource.shared.generateQuestionPack()
+        stringToQuestion(questionName: questionPack!.question)
     }
     
     public func isSubmited(selectedOption: Int){
@@ -45,11 +51,13 @@ class ChatManager: ObservableObject{
         // 5. get next question
         let nextQuestion = nextQuestion(selectedOption: selectedOption, packIndex: startIndex)
         // 6. Published to the question pack and answer choice
+//        if nextQuestion == nil {
+//
+//        }
+        
         questionPack = nextQuestion
     }
     
-    //kalo score >100 dia ke result
-    //kalo pertanyaan abis dia jg ke result
     
     
     public func nextQuestion(selectedOption: Int, packIndex: Int) -> QuestionPack{
@@ -58,15 +66,6 @@ class ChatManager: ObservableObject{
         //3. Kalo A punya child, cek semua child dia udah isDone belom
         if let hasChild = questionPack?.choices[selectedOption].childQuestions{
             //4. Kalo ada yang belom, pergi ke random child yang belom isDone
-//            if !isAllChildAnswered(childsName: hasChild){
-//                for questions in hasChild{
-//                    if !questions.isDone{
-//                        notDoneQuest = [questions]
-//                    }
-//                }
-//                let randQuest = notDoneQuest[Int.random(in: 0 ..< (notDoneQuest).count)]
-//                return randQuest
-//            }
             return hasChild
             //5. Kalo udah semua, lanjut ke random parent question
         }

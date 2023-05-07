@@ -29,11 +29,16 @@ class QuestionPack: Identifiable {
     }
 }
 
+//struct QuestionArray: Identifiable{
+//    var id = UUID()
+//    var questionArr: String
+//}
+
 struct QuestionDataSource{
     static var shared = QuestionDataSource()
     private init(){}
     
-    func generateQuestionPack() -> (QuestionPack, [[QuestionPack]], [QuestionPack], [QuestionPack], [QuestionPack], [QuestionPack]){
+    func generateQuestionPack() -> (QuestionPack, [[QuestionPack]], [QuestionPack], [QuestionPack], [QuestionPack], [QuestionPack], QuestionPack){
         let questionPack1 = QuestionPack(questionNumber: 1, question: "Is this a need or a want?")
         let questionPack2 = QuestionPack(questionNumber: 2, question: "Are you buying this for the right reasons?")
         let questionPack3 = QuestionPack(questionNumber: 3, question: "Can you get by without it?")
@@ -75,6 +80,8 @@ struct QuestionDataSource{
         let questionPack39 = QuestionPack(questionNumber: 39, question: "Am I getting the best deal?")
         let questionPack40 = QuestionPack(questionNumber: 40, question: "Is this the best quality I can afford?")
 
+        let questionFake = QuestionPack(questionNumber: 41, question: "Wait for your result...")
+        
         let answer1_1 = AnswersChoice(no: 1, text: "Need", score: 7)
         let answer1_2 = AnswersChoice(no: 2, text: "Want", score: 0)
         let answer1_3 = AnswersChoice(no: 3, text: "Both", score: 5)
@@ -291,7 +298,7 @@ struct QuestionDataSource{
         
         let questionPackSequence = [needsPack,financePack,itemPack,alternativePack]
         
-        return (needsPack[Int.random(in: 0 ... needsPack.count - 1)],questionPackSequence, needsPack, financePack, itemPack, alternativePack)
+        return (needsPack[Int.random(in: 0 ... needsPack.count - 1)],questionPackSequence, needsPack, financePack, itemPack, alternativePack, questionFake)
      }
 }
 
@@ -323,28 +330,6 @@ class AnswersChoice : Identifiable{
     func randomNums(start:Int, end:Int) -> Int{
         return Int.random(in: start...end)
     }
-
-//    func getNextQuestion(packs: [QuestionPack]) -> QuestionPack?{
-//        while(!isAllChildAnswered){
-//            let randQuest = packs[Int.random(in: 0 ..< (packs.count))]
-//            if(!randQuest.isDone){
-//                return randQuest
-//
-//            }
-//        }
-//        // Check whether we have child or not
-//        if let childQuestions {
-//            //selama belom semua child diisi
-//            while(!isAllChildAnswered){
-//                // Get the random child question that is not selected yet
-//                let randQuest = childQuestions[Int.random(in: 0 ..< (childQuestions.count ))]
-//                if(!randQuest.isDone){
-//                    return randQuest
-//                }
-//            }
-//        }
-//        return destination ?? nil
-//    }
     
     func addDestination(question: QuestionPack){
         self.destination = question

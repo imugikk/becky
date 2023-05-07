@@ -15,49 +15,12 @@ struct ChatView: View {
     
     @State private var currentQuestionIndex = 0
     
-    @State var options : [[String]] = [["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"],["yes gurlz", "no bitj", "maybe idk"], ["yes dedi", "no papa", "not sure"]]
+    @State var messages: [String] = []
+    @State private var messageText = ""
     
     @Environment(\.managedObjectContext) var moc
     @StateObject var chatManager: ChatManager = ChatManager()
     @State var selectedChoiceNumber: Int?
-    
-    @State var messages: [String] = ["Are you buying this for the right reasons?"]
-    @State private var messageText = ""
-    
-    struct ChatBubble: View {
-        let text: String
-        let sender: String
-        let isFromCurrentUser: Bool
-        let date: Date = Date()
-
-        var body: some View {
-            Group {
-                if isFromCurrentUser {
-                    HStack {
-                        Spacer()
-                        Text(text)
-                            .padding()
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                    }
-                } else {
-                    HStack {
-                        Text(sender)
-                            .font(.caption)
-                        Text(text)
-                            .padding()
-                            .background(Color.gray)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                        Spacer()
-                    }
-                }
-            }
-            .padding(.horizontal, 10)
-            .padding(.vertical, 5)
-        }
-    }
     
     var body: some View {
         ZStack{
@@ -73,7 +36,8 @@ struct ChatView: View {
                                     .background(Color.red)
                                     .cornerRadius(20)
                                     .font(.poppinsRegular)
-                                ForEach(messages, id: \.self) {
+
+                                ForEach(chatManager.arrOfString, id: \.self) {
                                     message in
                                     if message.contains("[USER]") {
                                         let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
@@ -82,15 +46,15 @@ struct ChatView: View {
                                             Spacer()
                                             Text(newMessage).font(.poppinsRegular)
                                                 .frame(minWidth: 50)
-                                                .padding(8)
+                                                .padding(10)
                                                 .foregroundColor(Color.white)
                                                 .background(Color.red)
                                                 .cornerRadius(20)
                                                 .font(.poppinsRegular)
                                         }
-                                        
+                                    } else {
                                         HStack{
-                                            Text(message).font(.poppinsRegular).padding(8)
+                                            Text(message).font(.poppinsRegular).padding(10)
                                                 .foregroundColor(Color.red)
                                                 .background(Color.white)
                                                 .cornerRadius(20)
@@ -102,7 +66,7 @@ struct ChatView: View {
                                         }
                                     }
                                 }
-                            }.padding(.horizontal, 10)
+                            }.padding(.horizontal, 20)
                         }
                     }.rotationEffect(.degrees(180))
                 }.rotationEffect(.degrees(180))
@@ -117,6 +81,8 @@ struct ChatView: View {
                             .background(Color.white)
                             .cornerRadius(20)
                             .font(.poppinsRegular)
+                            .padding(.leading, 10)
+                            .frame(maxWidth: .infinity, alignment: .leading)
                             .overlay{
                                 if let selectedChoiceNumber, choice.no == selectedChoiceNumber{
                                     RoundedRectangle(cornerRadius: 100)
@@ -128,11 +94,11 @@ struct ChatView: View {
                             }
                             .onTapGesture {
                                 selectedChoiceNumber = choice.no
-                                isSelected[selectedChoiceNumber!].toggle()
+                                isSelected[selectedChoiceNumber! - 1 ].toggle()
                                 isSubmit = false
         
                                 for i in 0..<isSelected.count {
-                                    if i == selectedChoiceNumber! {
+                                    if i == selectedChoiceNumber! - 1 {
                                         messageText = choice.text
                                     } else {
                                         isSelected[i] = false
@@ -153,11 +119,14 @@ struct ChatView: View {
                                 showingSheet.toggle()
                                 saveData()
                             } else if isSubmit {
-                                chatManager.isSubmited(selectedOption: selectedChoiceNumber!-1)
+                                chatManager.isSubmited(selectedOption: selectedChoiceNumber! - 1)
                                 sendMessage(message: messageText)
+                                
                                 for i in 0..<isSelected.count {
+                                    selectedChoiceNumber = 0
                                     isSelected[i] = false
                                 }
+                                
                                 isSubmit = false
     
                             }
@@ -166,7 +135,11 @@ struct ChatView: View {
             }
         }.overlay{
             if showingSheet{
-                ResultView()
+                if chatManager.totalScore <= 100 {
+                    ResultView(score: "bye")
+                } else {
+                    ResultView(score: "buy")
+                }
             }
         }.onAppear{
             chatManager.initiateQuestionPack()
@@ -197,14 +170,14 @@ struct ChatView: View {
     
     func sendMessage(message: String) {
         withAnimation {
-            messages.append("[USER]" + message)
+            chatManager.arrOfString.append("[USER]" + message)
             self.messageText = ""
         }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1){
             withAnimation {
-                messages.append(message)
-//                messages.append("test")
+                chatManager.arrOfString.append("\(chatManager.questionPack!.question)")
+                print(chatManager.arrOfString)
             }
         }
     }
