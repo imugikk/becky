@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BeckyView: View {
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State private var product: String = ""
     @State private var placeholder: String = ""
     
@@ -16,11 +17,26 @@ struct BeckyView: View {
     var body: some View {
         NavigationView{
             VStack (alignment: .leading){
+                HStack{
+                    Button(action: {
+                        // TOGGLE APPEARANCE
+                        isDarkMode.toggle()
+                    }, label: {
+                        Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .font(.system(.title, design: .rounded))
+                    })
+                }
+                .padding()
+                .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
+
+                
                 Image("Becky_Frontpage")
                     .resizable()
                     .scaledToFit()
                     .scaleEffect(0.75)
-                    .offset(x: -60, y: 110)
+                    .offset(x: -50, y: 90)
                 
                 VStack{
                     Image("Hello-3")
