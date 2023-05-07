@@ -41,6 +41,7 @@ struct DataController {
         if context.hasChanges {
             do {
                 try context.save()
+                print("saved")
             } catch {
                 let nsError = error as NSError
                 fatalError("Unresolved error \(nsError), \(nsError.userInfo)")

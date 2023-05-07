@@ -170,8 +170,18 @@ struct ChatView: View {
         history.result = "butuh"
         print("masuk")
         
-        DataController().save()
+//        DataController().save()
 //        try? moc.save()
+        do {
+            try moc.save()
+            if moc.hasChanges {
+                print("Data was successfully saved to Core Data.")
+            } else {
+                print("No changes were made to the Core Data store.")
+            }
+        } catch let error {
+            print("Error saving data: \(error.localizedDescription)")
+        }
     }
     
     func sendMessage(message: String) {

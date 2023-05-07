@@ -18,6 +18,12 @@ struct HistoryView: View {
     
     @FetchRequest(entity: History.entity() ,sortDescriptors: []) var histories : FetchedResults<History>
     
+    var dateFormatter: DateFormatter {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        return formatter
+    }
+    
     // MARK: - PROPERTIES
     @Environment(\.presentationMode) var presentationMode
     
@@ -52,20 +58,20 @@ struct HistoryView: View {
                         SearchBar(text: $searchText)
                             .foregroundColor(.accentColor)
                         
-                        
-                        ForEach(histories.filter({ searchText.isEmpty ? true : $0.product!.contains(searchText) }))  { item in
+                        //.filter({ searchText.isEmpty ? true : $0.product!.contains(searchText) })
+                        ForEach(histories)  { item in
                             VStack{
                                 HStack{
                                     
                                     VStack(alignment: .leading) {
                                         Text(item.product ?? "Unknown")
                                             .foregroundColor(.accentColor)
-                                        Text("12/34/56")
+                                        Text(dateFormatter.string(from: item.date!))
                                     }
                                     
                                     Spacer()
                                     
-                                    Text("butuh")
+                                    Text(item.result ?? "Unknown")
                                         .foregroundColor(.accentColor)
                                     
                                 }
