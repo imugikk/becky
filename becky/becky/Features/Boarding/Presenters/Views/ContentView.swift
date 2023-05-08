@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var text: String = "" // add this line to declare and initialize `text`
     @State private var finalText: String = "I will assist you in tackling your impulsiveness."
 
-
+    @Environment(\.managedObjectContext) var moc
     
     var body: some View {
         NavigationView{
@@ -190,7 +190,7 @@ struct ContentView: View {
                         .cornerRadius(100)
                         } else {
                             Button{
-                                
+                                saveData()
                             } label: {
                                 NavigationLink (destination: BeckyView(nama: name).navigationBarBackButtonHidden(true)){
                                     Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
@@ -222,6 +222,24 @@ struct ContentView: View {
                 text.append(finalText[position])
                 typeWriter(at: position + 1)
             }
+        }
+    }
+    
+    func saveData() {
+        let master = Master(context: moc)
+        master.id = UUID()
+        master.name = "\(name)"
+        print("masuk")
+        
+        do {
+            try moc.save()
+            if moc.hasChanges {
+                print("Data was successfully saved to Core Data.")
+            } else {
+                print("No changes were made to the Core Data store.")
+            }
+        } catch let error {
+            print("Error saving data: \(error.localizedDescription)")
         }
     }
 }

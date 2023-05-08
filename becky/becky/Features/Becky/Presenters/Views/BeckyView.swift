@@ -11,6 +11,8 @@ struct BeckyView: View {
     @State private var product: String = ""
     @State private var placeholder: String = ""
     
+    @FetchRequest(entity: Master.entity() ,sortDescriptors: []) var master : FetchedResults<Master>
+    
     let nama: String
     
     var body: some View {
@@ -26,7 +28,11 @@ struct BeckyView: View {
                     .offset(x:-0.5, y: 18)
                 
                 Spacer()
-                Text("Hello, \(Text(nama).font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
+                ForEach(master){
+                    item in HStack{
+                        Text("Hello, \(Text(item.name ?? "").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
+                    }
+                }
                 Text("Shall we assess your shopping cart?").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
                     ._lineHeightMultiple(0.85)
                 Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
@@ -76,6 +82,6 @@ struct BeckyView: View {
 
 struct BeckyView_Previews: PreviewProvider {
     static var previews: some View {
-        BeckyView(nama: "")
+        BeckyView(nama: "Ugik")
     }
 }
