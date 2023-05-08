@@ -71,18 +71,18 @@ struct ContentView: View {
                         
                         }, label: {
                             NavigationLink(destination: HistoryView()){
-                                Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                                Image(systemName: isDarkMode ? "clock.arrow.circlepath" :  "clock.arrow.circlepath")
                                     .resizable()
                                     .frame(width: 24, height: 24)
                                     .font(.system(.title, design: .rounded))
                             }
-                        })
+                        }) .offset(x:-12)
 
                         Button(action: {
                             // TOGGLE APPEARANCE
                             isDarkMode.toggle()
                         }, label: {
-                            Image(systemName: isDarkMode ? "moon.circle.fill" :  "moon.circle")
+                            Image(systemName: isDarkMode ? "circle.righthalf.filled" :  "circle.lefthalf.filled")
                                 .resizable()
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
@@ -90,7 +90,7 @@ struct ContentView: View {
                     }
                     .padding()
                     .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
-                    .offset(x:-150, y:-300)
+                    .offset(x:150, y:-300)
                     
 //                    Spacer()
                     
