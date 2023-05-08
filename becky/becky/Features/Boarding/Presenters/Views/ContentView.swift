@@ -34,12 +34,21 @@ struct ContentView: View {
                             .offset(x: -75, y: 250)
                         
                     }
-                    .offset(y:-130)
+                    .offset(y:-140)
                     
                     
-                    HStack{
+                    VStack{
+                        Image("Hello-3")
+                            .padding(.bottom, -5)
+                            .offset(x: -2)
+                        Image("Hello-2")
+                            .padding(.bottom, -5)
+                            .offset(x: 0)
+                        Image("Hello-1")
+                            .padding(.bottom, 2)
+                            .offset(x: -1)
                         
-                        Image("hello")
+//                        Image("hello")
                     }
                     .offset(x:-130, y:100)
                     HStack{
@@ -86,6 +95,8 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
+                                .background(.red.opacity(0.4))
+                                .cornerRadius(100)
                         })
                     }
                     .padding()
