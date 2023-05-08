@@ -19,6 +19,17 @@ struct BeckyView: View {
             VStack (alignment: .leading){
                 HStack{
                     Button(action: {
+                    
+                    }, label: {
+                        NavigationLink(destination: HistoryView()){
+                            Image(systemName: isDarkMode ? "clock.arrow.circlepath" :  "clock.arrow.circlepath")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .font(.system(.title, design: .rounded))
+                        }
+                    }) .offset(x:-12)
+                    
+                    Button(action: {
                         // TOGGLE APPEARANCE
                         isDarkMode.toggle()
                     }, label: {
@@ -30,6 +41,7 @@ struct BeckyView: View {
                             .cornerRadius(100)
                     })
                 }
+                .offset(x:290)
                 .padding()
                 .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
 
