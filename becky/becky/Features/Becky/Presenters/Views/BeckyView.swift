@@ -12,8 +12,6 @@ struct BeckyView: View {
     @State private var product: String = ""
     @State private var placeholder: String = ""
     
-    @FetchRequest(entity: Master.entity() ,sortDescriptors: []) var master : FetchedResults<Master>
-    
     let nama: String
     
     var body: some View {

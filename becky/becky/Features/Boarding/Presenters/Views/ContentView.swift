@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     
-    @State private var name: String = ""
+    @State var name: String = ""
     @State private var placeholder: String = ""
     @State private var offset = CGSize(width: 0, height: -6)
     @State private var opacity = 1.0
@@ -20,7 +20,8 @@ struct ContentView: View {
     @State private var text: String = "" // add this line to declare and initialize `text`
     @State private var finalText: String = "I will assist you in tackling your impulsiveness."
 
-    @Environment(\.managedObjectContext) var moc
+    @Environment(\.managedObjectContext) var masterMoc
+    @State private var showNextView = false
     
     var body: some View {
         NavigationView{
@@ -189,7 +190,7 @@ struct ContentView: View {
                         }.padding(.horizontal, 15) .padding(.vertical, 8).overlay( RoundedRectangle(cornerRadius: 70).stroke(Color.red, lineWidth: 1) )
                         
                         if name.isEmpty { Button(action: {
-                            
+                                print("test")
                         }) {
                             Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
                                 .frame(width:50, height:33)
@@ -200,19 +201,25 @@ struct ContentView: View {
                         .foregroundColor(.red)
                         .cornerRadius(100)
                         } else {
-                            Button{
-                                saveData()
-                            } label: {
-                                NavigationLink (destination: BeckyView(nama: name).navigationBarBackButtonHidden(true)){
-                                    Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
-                                        .frame(width:50, height:33)
-                                        .scaleEffect(1.2)
+                            VStack{
+                                Button(action: {
+                                    print(name)
+                                    saveData()
+                                    showNextView.toggle()
+                                }, label: {
+                                        Image(systemName: "arrow.right").padding(.vertical, 7).padding(.horizontal, 8)
+                                            .frame(width:50, height:33)
+                                            .scaleEffect(1.2)
+                                    })
+                                    .padding(7)
+                                    .background(.red)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(100)
+                                
+                                NavigationLink (destination: BeckyView(nama: name).navigationBarBackButtonHidden(), isActive: $showNextView) {
+                                    EmptyView()
                                 }
                             }
-                            .padding(7)
-                            .background(.red)
-                            .foregroundColor(.white)
-                            .cornerRadius(100)
                         }
                     }
                     .offset(y:-30)
@@ -237,14 +244,14 @@ struct ContentView: View {
     }
     
     func saveData() {
-        let master = Master(context: moc)
+        let master = Master(context: masterMoc)
         master.id = UUID()
         master.name = "\(name)"
         print("masuk")
         
         do {
-            try moc.save()
-            if moc.hasChanges {
+            try masterMoc.save()
+            if masterMoc.hasChanges {
                 print("Data was successfully saved to Core Data.")
             } else {
                 print("No changes were made to the Core Data store.")
