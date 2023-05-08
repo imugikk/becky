@@ -36,16 +36,16 @@ struct DataController {
         print("cek")
     }
     
-    func save() {
-        let context = container.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-                print("saved")
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
+//    func save() {
+//        let context = container.viewContext
+//        if context.hasChanges {
+//            do {
+//                try context.save()
+//                print("saved")
+//            } catch {
+//                let nsError = error as NSError
+//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//            }
+//        }
+//    }
 }

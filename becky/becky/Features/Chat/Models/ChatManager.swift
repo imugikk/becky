@@ -19,7 +19,7 @@ class ChatManager: ObservableObject{
     private var financePack: [QuestionPack] = []
     private var itemPack: [QuestionPack] = []
     private var alternativePack: [QuestionPack] = []
-    private var questionFake: QuestionPack?
+    var questionFake: QuestionPack?
     var startIndex: Int = 0
     
     func stringToQuestion(questionName: String){
@@ -74,6 +74,9 @@ class ChatManager: ObservableObject{
             for questions in questionSequence[packIndex]{
                 if !questions.isDone{
                     notDoneQuest = [questions]
+//                    if (startIndex == 3 && notDoneQuest.count == 1){
+//                        return questionFake!
+//                    }
                 }
             }
             //7. Kalo masih ada yang belom, pilih random parent question yang belom isDone
