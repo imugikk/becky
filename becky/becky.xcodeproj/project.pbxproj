@@ -46,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		4211366D2A07FEC70030AFD0 /* Becky_Frontpage.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = Becky_Frontpage.svg; sourceTree = "<group>"; };
+		42DAE6372A08A1730035DBD3 /* Hello-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hello-1.png"; path = "../../../../../Hello-1.png"; sourceTree = "<group>"; };
+		42DAE6382A08A1730035DBD3 /* Hello-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hello-2.png"; path = "../../../../../Hello-2.png"; sourceTree = "<group>"; };
+		42DAE6392A08A1730035DBD3 /* Hello-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hello-3.png"; path = "../../../../../Hello-3.png"; sourceTree = "<group>"; };
 		8B663F782A0640DB00A5F3BC /* hello.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hello.png; path = ../../../../../hello.png; sourceTree = "<group>"; };
 		F10030812A0893FB00EFB91E /* Hello-2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hello-2.png"; path = "../../../../../../Hello-2.png"; sourceTree = "<group>"; };
 		F10030822A0893FB00EFB91E /* Hello-3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Hello-3.png"; path = "../../../../../../Hello-3.png"; sourceTree = "<group>"; };
@@ -344,6 +347,9 @@
 				F10030822A0893FB00EFB91E /* Hello-3.png */,
 				4211366D2A07FEC70030AFD0 /* Becky_Frontpage.svg */,
 				8B663F782A0640DB00A5F3BC /* hello.png */,
+				42DAE6372A08A1730035DBD3 /* Hello-1.png */,
+				42DAE6382A08A1730035DBD3 /* Hello-2.png */,
+				42DAE6392A08A1730035DBD3 /* Hello-3.png */,
 				F1261FE12A00F71700A81E9E /* Fonts */,
 				F184212529FB6B9F0096A44B /* Assets.xcassets */,
 			);
@@ -556,9 +562,12 @@
 				F10030852A0893FB00EFB91E /* Hello-3.png in Resources */,
 				F1261FE52A00FE4A00A81E9E /* Poppins-Italic.ttf in Resources */,
 				F1261FE42A00FCC700A81E9E /* Poppins-SemiBold.ttf in Resources */,
+				42DAE63B2A08A1730035DBD3 /* Hello-2.png in Resources */,
 				F1261FE32A00FC4F00A81E9E /* Poppins-Regular.ttf in Resources */,
+				42DAE63A2A08A1730035DBD3 /* Hello-1.png in Resources */,
 				F1261FE22A00FC4700A81E9E /* Poppins-Bold.ttf in Resources */,
 				F184212929FB6B9F0096A44B /* Preview Assets.xcassets in Resources */,
+				42DAE63C2A08A1730035DBD3 /* Hello-3.png in Resources */,
 				F184212629FB6B9F0096A44B /* Assets.xcassets in Resources */,
 				4211366E2A07FEC70030AFD0 /* Becky_Frontpage.svg in Resources */,
 			);

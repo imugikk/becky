@@ -19,6 +19,9 @@ struct ContentView: View {
     
     @State private var text: String = "" // add this line to declare and initialize `text`
     @State private var finalText: String = "I will assist you in tackling your impulsiveness."
+    @State private var opacity1 = 0.0
+    @State private var opacity2 = 0.0
+    @State private var opacity3 = 0.0
 
     @Environment(\.managedObjectContext) var masterMoc
     @State private var showNextView = false
@@ -32,7 +35,7 @@ struct ContentView: View {
                             .resizable()
                             .scaledToFit()
                             .scaleEffect(1.3)
-                            .offset(x: -75, y: 250)
+                            .offset(x: -40, y: 250)
                         
                     }
                     .offset(y:-140)
@@ -42,12 +45,37 @@ struct ContentView: View {
                         Image("Hello-3")
                             .padding(.bottom, -5)
                             .offset(x: -2)
+                            .opacity(opacity1)
+                            .animation(.easeIn(duration: 1)
+                                .speed(1)
+                                .delay(0)
+                                       , value: self.opacity1)
+                            .onAppear{
+                            opacity1 = 100.0
+                            }
+                        
                         Image("Hello-2")
                             .padding(.bottom, -5)
                             .offset(x: 0)
+                            .opacity(opacity2)
+                            .animation(.easeIn(duration: 1)
+                                .speed(2)
+                                .delay(1)
+                                       , value: self.opacity2)
+                            .onAppear{
+                            opacity2 = 100.0
+                            }
                         Image("Hello-1")
                             .padding(.bottom, 2)
                             .offset(x: -1)
+                            .opacity(opacity3)
+                            .animation(.easeIn(duration: 1)
+                                .speed(3)
+                                .delay(2)
+                                       , value: self.opacity3)
+                            .onAppear{
+                            opacity3 = 100.0
+                            }
                         
 //                        Image("hello")
                     }
@@ -96,13 +124,12 @@ struct ContentView: View {
                                 .resizable()
                                 .frame(width: 24, height: 24)
                                 .font(.system(.title, design: .rounded))
-                                .background(.red.opacity(0.4))
                                 .cornerRadius(100)
                         })
                     }
                     .padding()
                     .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
-                    .offset(x:150, y:-300)
+                    .offset(x:150, y:-370)
                     
 //                    Spacer()
                     
