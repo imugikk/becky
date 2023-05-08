@@ -47,7 +47,7 @@ struct ContentView: View {
                             .offset(x: -2)
                             .opacity(opacity1)
                             .animation(.easeIn(duration: 1)
-                                .speed(1)
+                                .speed(3)
                                 .delay(0)
                                        , value: self.opacity1)
                             .onAppear{
@@ -59,8 +59,8 @@ struct ContentView: View {
                             .offset(x: 0)
                             .opacity(opacity2)
                             .animation(.easeIn(duration: 1)
-                                .speed(2)
-                                .delay(1)
+                                .speed(4)
+                                .delay(0.1)
                                        , value: self.opacity2)
                             .onAppear{
                             opacity2 = 100.0
@@ -70,8 +70,8 @@ struct ContentView: View {
                             .offset(x: -1)
                             .opacity(opacity3)
                             .animation(.easeIn(duration: 1)
-                                .speed(3)
-                                .delay(2)
+                                .speed(5)
+                                .delay(0.2)
                                        , value: self.opacity3)
                             .onAppear{
                             opacity3 = 100.0
@@ -96,7 +96,7 @@ struct ContentView: View {
                     }
                     .offset(x:-35, y:100)
                     .onAppear{
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        DispatchQueue.main.asyncAfter(deadline: .now()) {
                             withAnimation{
                                 self.showText = true
                             }
@@ -129,49 +129,7 @@ struct ContentView: View {
                     }
                     .padding()
                     .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
-                    .offset(x:150, y:-370)
-                    
-//                    Spacer()
-                    
-                    
-                    //                    ZStack (alignment: .leading){
-                    //                        VStack{
-                    ////                            VStack (alignment: .leading){
-                    ////
-                    ////                                Image("hello")
-                    ////
-                    ////                                VStack{
-                    ////                                    if showText{
-                    ////                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
-                    ////    //                                        .foregroundColor(Color.red)
-                    ////                                            .foregroundColor(isDarkMode ? .red : .red)
-                    ////                                            .padding(.bottom,1).frame(height: 15)
-                    ////                                            .transition(AnyTransition.opacity.animation(Animation.easeInOut(duration: 1.3)))
-                    ////                                    } else {
-                    ////                                        Text("Hello, I'm \(Text("Becky").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge)
-                    ////                                            .foregroundColor(isDarkMode ? .black : .white) // update foreground color
-                    ////    //                                        .foregroundColor(Color.white)
-                    ////                                            .padding(.bottom,1).frame(height: 15)
-                    ////                                    }
-                    ////                                }.onAppear{
-                    ////                                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    ////                                        withAnimation{
-                    ////                                            self.showText = true
-                    ////                                        }
-                    ////                                    }
-                    ////                                }
-                    ////                            }
-                    //                        }
-                    //
-                    ////                        Rectangle()
-                    ////                            .fill(isDarkMode ? Color.black : Color.white)
-                    ////                            .frame(width: 100, height: 130)
-                    ////                            .offset(offset)
-                    ////                            .animation(Animation.easeInOut(duration: 2))
-                    ////                            .opacity(opacity)
-                    //                    }
-                    //                    .onAppear {
-                    //                        offset = CGSize(width: 0, height: 120)}
+                    .offset(x:140, y:-320)
                     
                     HStack{
                         if showText {
@@ -195,7 +153,7 @@ struct ContentView: View {
                                 .foregroundColor(Color.white)
                                 .padding(0.0)
                         }
-                    }.offset(x:-18, y: 20)
+                    }.offset(x:-15, y: 20)
                         .padding()
                         .frame(width: 350, height: 200, alignment: .leading)
                     

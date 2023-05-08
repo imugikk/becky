@@ -116,7 +116,7 @@ struct ChatView: View {
                     
                     SubmitButtonView(isSubmit: $isSubmit)
                         .onTapGesture {
-                            if isSubmit && (chatManager.totalScore >= 100 || index >= 5 ) {
+                            if isSubmit && (chatManager.totalScore >= 100 || index >= 35 ) {
                                 showingSheet.toggle()
                                 saveData()
                             } else if isSubmit {
