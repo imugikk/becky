@@ -44,7 +44,7 @@ struct BeckyView: View {
                             .cornerRadius(100)
                     })
                 }
-                .offset(x:320)
+                .offset(x:280)
                 .padding()
                 .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
 

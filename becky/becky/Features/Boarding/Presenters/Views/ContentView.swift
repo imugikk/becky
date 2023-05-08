@@ -128,7 +128,7 @@ struct ContentView: View {
                     }
                     .padding()
                     .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
-                    .offset(x:170, y:-375)
+                    .offset(x:150, y:-300)
                     
 //                    Spacer()
                     
