@@ -45,7 +45,7 @@ struct BeckyView: View {
                             .cornerRadius(100)
                     })
                 }
-                .offset(x:280)
+                .offset(x:320)
                 .padding()
                 .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
 
@@ -53,8 +53,8 @@ struct BeckyView: View {
                 Image("Becky_Frontpage")
                     .resizable()
                     .scaledToFit()
-                    .scaleEffect(0.75)
-                    .offset(x: -50, y: 90)
+                    .scaleEffect(0.8)
+                    .offset(x: -70, y: 90)
                 
                 VStack{
                     Image("Hello-3")
