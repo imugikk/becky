@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct BeckyView: View {
+    @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State private var product: String = ""
     @State private var placeholder: String = ""
     
@@ -18,22 +19,60 @@ struct BeckyView: View {
     var body: some View {
         NavigationView{
             VStack (alignment: .leading){
+                HStack{
+                    Button(action: {
+                    
+                    }, label: {
+                        NavigationLink(destination: HistoryView()){
+                            Image(systemName: isDarkMode ? "clock.arrow.circlepath" :  "clock.arrow.circlepath")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                                .font(.system(.title, design: .rounded))
+                        }
+                    }) .offset(x:-12)
+                    
+                    Button(action: {
+                        // TOGGLE APPEARANCE
+                        isDarkMode.toggle()
+                    }, label: {
+                        Image(systemName: isDarkMode ? "circle.righthalf.filled" :  "circle.lefthalf.filled")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                            .font(.system(.title, design: .rounded))
+                            .background(.red.opacity(0.4))
+                            .cornerRadius(100)
+                    })
+                }
+                .offset(x:290)
+                .padding()
+                .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
+
+                
                 Image("Becky_Frontpage")
                     .resizable()
                     .scaledToFit()
                     .scaleEffect(0.75)
-                    .offset(x: -60, y: 110)
+                    .offset(x: -50, y: 90)
                 
-                Image("hello")
-                    .offset(x:-0.5, y: 18)
+                VStack{
+                    Image("Hello-3")
+                        .padding(.bottom, -5)
+                        .offset(x: -1)
+                    Image("Hello-2")
+                        .padding(.bottom, -5)
+                        .offset(x: 1)
+                    Image("Hello-1")
+                        .padding(.bottom, 2)
+                        .offset(x: 0)
+                }
+                .offset(x:0, y:18)
+                
+//                Image("hello")
+//                    .offset(x:-0.5, y: 18)
                 
                 Spacer()
-                ForEach(master){
-                    item in HStack{
-                        Text("Hello, \(Text(item.name ?? "").font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
-                    }
-                }
-                Text("Shall we assess your shopping cart?").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
+                Text("Hello, \(Text(nama).font(.poppinsItalicLarge).underline())!").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(.bottom,1)
+                Text("Tell me what you want to buy").font(.poppinsSemiBoldLarge).foregroundColor(Color.red).padding(0.0)
                     ._lineHeightMultiple(0.85)
                 Text("*****").font(.poppinsLightLarge).fontWeight(.light).foregroundColor(Color.red)
                 
