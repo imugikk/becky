@@ -11,6 +11,10 @@ struct BeckyView: View {
     @AppStorage("isDarkMode") private var isDarkMode: Bool = false
     @State private var product: String = ""
     @State private var placeholder: String = ""
+    @State private var OpacityBecky1 = 0.0
+    @State private var OpacityBecky2 = 0.0
+    @State private var OpacityBecky3 = 0.0
+    
     
     let nama: String
     
@@ -37,11 +41,10 @@ struct BeckyView: View {
                             .resizable()
                             .frame(width: 24, height: 24)
                             .font(.system(.title, design: .rounded))
-                            .background(.red.opacity(0.4))
                             .cornerRadius(100)
                     })
                 }
-                .offset(x:290)
+                .offset(x:320)
                 .padding()
                 .preferredColorScheme(isDarkMode ? .dark : .light) // set preferredColorScheme
 
@@ -56,12 +59,37 @@ struct BeckyView: View {
                     Image("Hello-3")
                         .padding(.bottom, -5)
                         .offset(x: -1)
+                        .opacity(OpacityBecky1)
+                        .animation(.easeIn(duration: 1)
+                            .speed(1)
+                            .delay(0)
+                                   , value: self.OpacityBecky1)
+                        .onAppear{
+                        OpacityBecky1 = 100.0
+                        }
                     Image("Hello-2")
                         .padding(.bottom, -5)
                         .offset(x: 1)
+                        .opacity(OpacityBecky2)
+                        .animation(.easeIn(duration: 1)
+                            .speed(2)
+                            .delay(1)
+                                   , value: self.OpacityBecky2)
+                        .onAppear{
+                        OpacityBecky2 = 100.0
+                        }
+                    
                     Image("Hello-1")
                         .padding(.bottom, 2)
                         .offset(x: 0)
+                        .opacity(OpacityBecky3)
+                        .animation(.easeIn(duration: 1)
+                            .speed(3)
+                            .delay(2)
+                                   , value: self.OpacityBecky3)
+                        .onAppear{
+                        OpacityBecky3 = 100.0
+                        }
                 }
                 .offset(x:0, y:18)
                 
