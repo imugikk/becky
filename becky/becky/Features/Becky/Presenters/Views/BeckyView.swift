@@ -37,7 +37,7 @@ struct BeckyView: View {
                             .resizable()
                             .frame(width: 24, height: 24)
                             .font(.system(.title, design: .rounded))
-                            .background(.red.opacity(0.4))
+//                            .background(.red.opacity(0.4))
                             .cornerRadius(100)
                     })
                 }
